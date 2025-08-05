@@ -9,7 +9,11 @@
     "start": "node dist/index.js",
     "dev": "nodemon --watch src --exec ts-node src/index.ts",
     "lint": "eslint 'src/**/*.{js,ts}'",
-    "lint:fix": "eslint 'src/**/*.{js,ts}' --fix"
+    "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
+    "start:redis": "docker compose -f docker/docker-compose.yml up --build",
+    "redis:pause": "docker compose -f docker/docker-compose.yml pause redis",
+    "redis:flush": "docker exec redis redis-cli FLUSHALL",
+    "redis:unpause": "docker compose -f docker/docker-compose.yml unpause redis"
   },
   "keywords": [],
   "author": "",
