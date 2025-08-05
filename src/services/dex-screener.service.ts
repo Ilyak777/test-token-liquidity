@@ -1,11 +1,7 @@
 import axios from 'axios';
-import Bottleneck from 'bottleneck';
 import { redisClient } from '../cache/redisClient';
 import { config } from '../config';
-
-const profilesLimiter = new Bottleneck({ minTime: 1000, maxConcurrent: 1 });
-const searchLimiter   = new Bottleneck({ minTime: 200,  maxConcurrent: 1 });
-const poolsLimiter = new Bottleneck({ minTime: 200, maxConcurrent: 1 });
+import { poolsLimiter, profilesLimiter, searchLimiter } from '../utils/limiter';
 
 export interface TokenProfile {
   tokenAddress: string;
