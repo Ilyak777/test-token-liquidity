@@ -11,7 +11,7 @@ npm run start:redis
 
 если во время теста редис забьется - очистить так
 ```
-redis:flush
+npm run redis:flush
 ```
 
 после этого запускаем апку - 
